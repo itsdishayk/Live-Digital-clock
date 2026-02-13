@@ -3,7 +3,7 @@
 A premium, glassmorphism-inspired digital clock. This project focuses on real-time UI updates and modern CSS aesthetics.
 
 ## 🚀 Experience It Live
-[<img src="https://img.shields.io/badge/OPEN%20LIVE%20CLOCK-2026-brightgreen?style=for-the-badge&logo=clockify&logoColor=white" width="250">](PASTE_YOUR_CLOCK_LINK_HERE)
+[<img src="https://img.shields.io/badge/OPEN%20LIVE%20CLOCK-2026-brightgreen?style=for-the-badge&logo=clockify&logoColor=white" width="250">](https://itsdishayk.github.io/Live-Digital-clock/)
 
 ---
 
