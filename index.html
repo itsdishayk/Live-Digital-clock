@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern Neon Dashboard Clock</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background: radial-gradient(circle, #1a1a2e 0%, #0f0f0f 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            /* Glassmorphism Effect */
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 60px;
+            border-radius: 30px; /* Round edges */
+            text-align: center;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 
+                        inset 0 0 15px rgba(3, 233, 244, 0.1);
+            position: relative;
+        }
+
+        /* The Neon Glow Border */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #03e9f4, transparent, #ff0055);
+            z-index: -1;
+            border-radius: 32px;
+            filter: blur(10px);
+            opacity: 0.3;
+        }
+
+        #time {
+            font-size: 80px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4;
+            letter-spacing: 5px;
+        }
+
+        #date-box {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #03e9f4;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+
+        .day-active {
+            color: #fff;
+            text-shadow: 0 0 5px #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="time">00:00:00</div>
+        <div id="date-box">
+            <span id="dayName">DAY</span> — 
+            <span id="fullDate">00 MONTH 2026</span>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            
+            // Time logic
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('time').innerText = `${h}:${m}:${s}`;
+
+            // Date & Day logic
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            
+            document.getElementById('dayName').innerText = days[now.getDay()];
+            document.getElementById('fullDate').innerText = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
